@@ -8,9 +8,26 @@
 			background: url(bg-fries.jpg);
 		}
 	</style>
+        <script src="./headtrackr-master/headtrackr.js"></script>
 </head>
 <body>
-	<img src="pizza.gif">
+	<img id="pizza" src="pizza.gif">
 	
+        <canvas id="inputCanvas" width="320" height="240" style="display:none"></canvas>
+        <video id="inputVideo" autoplay loop></video>
+        <script type="text/javascript">
+          var videoInput = document.getElementById('inputVideo');
+          var canvasInput = document.getElementById('inputCanvas');
+          var pizza = document.getElementById('pizza');
+
+          var htracker = new headtrackr.Tracker();
+          htracker.init(videoInput, canvasInput);
+          htracker.start();
+          document.addEventListener('facetrackingEvent', function(evt) {
+            console.log(evt);
+            pizza.style.transform = 'rotate('+evt.angle+'deg)'; 
+          });
+        </script>
+
 </body>
 </html>
