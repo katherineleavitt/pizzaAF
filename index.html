@@ -32,7 +32,7 @@
           var angle = 0;
           document.addEventListener('facetrackingEvent', function(evt) {
           	//angle = evt.angle;
-          	angle += 10*(evt.angle-1.5);
+          	angle += -10*(evt.angle-1.5)%360;
             //var angle = window.offset+(evt.angle*1.5);
             pizza.style.transform = 'rotate('+angle+'deg)'; 
           });
