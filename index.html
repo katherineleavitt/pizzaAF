@@ -29,9 +29,12 @@
           var htracker = new headtrackr.Tracker({calcAngles: true});
           htracker.init(videoInput, canvasInput);
           htracker.start();
+          var angle = 0;
           document.addEventListener('facetrackingEvent', function(evt) {
-            console.log(evt);
-            pizza.style.transform = 'rotate('+evt.angle*1.5+'rad)'; 
+          	//angle = evt.angle;
+          	angle += 10*(evt.angle-1.5);
+            //var angle = window.offset+(evt.angle*1.5);
+            pizza.style.transform = 'rotate('+angle+'deg)'; 
           });
         </script>
 
