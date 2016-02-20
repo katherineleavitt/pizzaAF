@@ -1,3 +1,3 @@
-#!/usr/bin/bash
+#!/bin/bash
 open http://localhost:8888/
 python -m SimpleHTTPServer 8888
